@@ -36,11 +36,16 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Todo List ] <a name="about-project"></a>
+# 📖 Todo List  <a name="about-project"></a>
 
 
-**[Todo List]** is a Single Page JavaScript project, using React and ES6 features, and modules that let users Add the dos and enable to edit or delete them.
-<img src="./assets/images/screenshot_of_app.png" alt="logo" width="140"  height="auto" style='border-radius:30%'/>
+**Todo List** is a Single Page JavaScript project, using React and ES6 features, and modules that let users Add the dos and enable to edit or delete them.
+<br />
+<div align="center">
+<img src="./assets/images/screenshot_of_app.png" alt="logo" width="500"  height="auto" style='border-radius:30%'/>
+</div>
+
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
