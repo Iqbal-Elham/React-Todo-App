@@ -1,10 +1,11 @@
-const Header = () => {
+const TodoItem = ({itemProp}) => {
+    console.log('itme',itemProp)
     return (
-      <header>
-        <h1>todos</h1>
-        <p>Items will persist in the browser local storage</p>
-      </header>
+        <li>
+            <input type="checkbox" />
+            {itemProp.title}
+        </li>
     );
   };
-  export default Header;
+  export default TodoItem;
   

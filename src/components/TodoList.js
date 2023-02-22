@@ -1,8 +1,12 @@
+import TodoItem from './TodoItem';
+
 const TodoList = (props) => {
+    const { todoProp } = props
+    console.log('propppp',todoProp)
     return (
         <ul>
-            {props.todoProp.map(todo => (
-                <li key={todo.id}>{todo.title}</li>
+            {todoProp.map((todo) => (
+                <TodoItem key={todo.id} itemProp={todo} />
             ))}
         </ul>
     )

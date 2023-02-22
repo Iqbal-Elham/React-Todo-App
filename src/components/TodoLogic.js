@@ -1,8 +1,9 @@
+import React, { useState } from 'react';
 import InputTodo from "./InputTodo";
 import TodoList from "./TodoList";
 
 const TodosLogic = () => {
-    const todos = [
+    const todoArr = [
         {
           id: 1,
           title: 'Setup development environment',
@@ -19,9 +20,9 @@ const TodosLogic = () => {
           completed: false,
         },
       ];
-
+      const [ todos, setTodos ] = useState(todoArr)
     return (
-      <div> <h2>TodosLogic content</h2>
+      <div>
         <InputTodo />
         <TodoList todoProp={todos} />
       </div>
