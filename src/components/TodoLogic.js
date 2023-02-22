@@ -24,22 +24,20 @@ const TodosLogic = () => {
 
       const handleChange = (id) => {
         setTodos((prevState) => 
-            prevState.map(todo => {
-                if (todo.id === id) {
-                    return {
-                        ...todo, 
-                        completed: !todo.completed,
-                    }
-                }
-                return todo;
-            })
+            prevState.map(todo => (todo.id) === id ? {...todo, completed: !todo.completed} : todo)
         )
     }
     
+    const delTodo = (id) => {
+        setTodos([
+            ...todos.filter((todo) => todo.id !== id)
+        ])
+    }
+
     return (
       <div>
         <InputTodo />
-        <TodoList todoProp={todos} handleChange={handleChange} />
+        <TodoList todoProp={todos} handleChange={handleChange} delTodo={delTodo} />
       </div>
     )
   }

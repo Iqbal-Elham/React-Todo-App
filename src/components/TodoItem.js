@@ -1,4 +1,4 @@
-const TodoItem = ({itemProp, handleChange}) => {
+const TodoItem = ({itemProp, handleChange, delTodo}) => {
 
     
     return (
@@ -9,6 +9,7 @@ const TodoItem = ({itemProp, handleChange}) => {
             onChange={() => handleChange(itemProp.id)}
             />
             {itemProp.title}
+            <button onClick={() => delTodo(itemProp.id)} type="button">Delete</button>
         </li>
     );
   };
