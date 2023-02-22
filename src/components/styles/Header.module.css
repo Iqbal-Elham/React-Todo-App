@@ -1,14 +1,15 @@
 
 .header {
-    text-align: center;
-    height: 9rem;
-    background: linear-gradient(180deg, rgba(9,45,121,1) 0%, rgba(0,181,255,1) 66%);
-    border-top-right-radius: 23px;
-    border-top-left-radius: 23px;
-    padding: 2rem;
-    font-family: cursive;
-    color: white;
+  text-align: center;
+  height: 9rem;
+  background: linear-gradient(180deg, rgba(9, 45, 121, 1) 0%, rgba(0, 181, 255, 1) 66%);
+  border-top-right-radius: 23px;
+  border-top-left-radius: 23px;
+  padding: 2rem;
+  font-family: cursive;
+  color: white;
 }
+
 .header h1 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
