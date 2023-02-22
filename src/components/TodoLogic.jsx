@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import InputTodo from "./InputTodo";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from 'uuid'
 
 const TodosLogic = () => {
-    const todoArr = [
-        {
-          id: uuidv4,
-          title: 'Setup development environment',
-          completed: true,
-        },
-        
-      ];
-      const [ todos, setTodos ] = useState(todoArr)
+
+  const getInitialTodos = () => {
+    // getting stored items
+    const temp = localStorage.getItem('todos');
+    const savedTodos = JSON.parse(temp);
+    return savedTodos || [];
+  }
+
+      const [ todos, setTodos ] = useState(getInitialTodos())
 
       const handleChange = (id) => {
         setTodos((prevState) => 
@@ -45,6 +45,11 @@ const TodosLogic = () => {
         })
       )
     }
+
+    useEffect(() => {
+      const temp = JSON.stringify(todos);
+      localStorage.setItem('todos', temp);
+    }, [todos])
 
     return (
       <div>
