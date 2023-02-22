@@ -1,8 +1,13 @@
-const TodoItem = ({itemProp}) => {
-    console.log('itme',itemProp)
+const TodoItem = ({itemProp, handleChange}) => {
+
+    
     return (
         <li>
-            <input type="checkbox" />
+            <input
+            type="checkbox"
+            checked={itemProp.completed}
+            onChange={() => handleChange(itemProp.id)}
+            />
             {itemProp.title}
         </li>
     );

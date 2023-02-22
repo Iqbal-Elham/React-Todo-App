@@ -1,12 +1,12 @@
 import TodoItem from './TodoItem';
 
 const TodoList = (props) => {
-    const { todoProp } = props
-    console.log('propppp',todoProp)
+    const { todoProp, handleChange } = props
+    console.log(todoProp)
     return (
         <ul>
             {todoProp.map((todo) => (
-                <TodoItem key={todo.id} itemProp={todo} />
+                <TodoItem key={todo.id} itemProp={todo} handleChange={handleChange}/>
             ))}
         </ul>
     )
