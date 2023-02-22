@@ -35,10 +35,21 @@ const TodosLogic = () => {
       setTodos([...todos,newTodo])
     }
 
+    const setUpdate = (updateTitle, id) => {
+      setTodos(
+        todos.map((todo) => {
+          if (todo.id === id) {
+            todo.title = updateTitle;
+          }
+            return todo;
+        })
+      )
+    }
+
     return (
       <div>
         <InputTodo addTodoItem={addTodoItem}/>
-        <TodoList todoProp={todos} handleChange={handleChange} delTodo={delTodo} />
+        <TodoList todoProp={todos} handleChange={handleChange} delTodo={delTodo} setUpdate={setUpdate}/>
       </div>
     )
   }
