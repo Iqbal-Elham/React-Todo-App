@@ -1,15 +1,37 @@
+import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
 const TodoList = (props) => {
-    const { todoProp } = props
-    console.log('propppp',todoProp)
-    return (
-        <ul>
-            {todoProp.map((todo) => (
-                <TodoItem key={todo.id} itemProp={todo} />
-            ))}
-        </ul>
-    )
-}
+  const {
+    todoProp, handleChange, delTodo, setUpdate,
+  } = props;
+  return (
+    <ul>
+      {todoProp.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          itemProp={todo}
+          handleChange={handleChange}
+          delTodo={delTodo}
+          setUpdate={setUpdate}
+        />
+      ))}
+    </ul>
+  );
+};
 
-export default TodoList
+TodoList.defaultProps = {
+  todoProp: [],
+  handleChange: () => {},
+  delTodo: () => {},
+  setUpdate: () => {},
+};
+
+TodoList.propTypes = {
+  todoProp: PropTypes.instanceOf(Array),
+  handleChange: PropTypes.func,
+  delTodo: PropTypes.func,
+  setUpdate: PropTypes.func,
+};
+
+export default TodoList;
