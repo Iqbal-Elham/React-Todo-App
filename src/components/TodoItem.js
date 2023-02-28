@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { AiFillEdit } from 'react-icons/ai';
+import PropTypes from 'prop-types';
+
 import styles from './styles/TodoItem.module.css';
-/* eslint-disable react/prop-types */
+
 const TodoItem = ({
   itemProp, handleChange, delTodo, setUpdate,
 }) => {
   const [edit, setEdit] = useState(false);
+
+  const completedStyle = {
+    textDecoration: 'line-through',
+    color: 'gray',
+    fontStyle: 'italic',
+    opacity: 0.6,
+  };
 
   const handleEdit = () => {
     setEdit(true);
@@ -34,7 +43,9 @@ const TodoItem = ({
           checked={itemProp.completed}
           onChange={() => handleChange(itemProp.id)}
         />
-        {itemProp.title}
+        <span style={itemProp.completed ? completedStyle : null}>
+          {itemProp.title}
+        </span>
         <button type="button" onClick={handleEdit}>
           <AiFillEdit style={{ color: '#5e5e5e', fontSize: '20px' }} />
         </button>
@@ -53,4 +64,20 @@ const TodoItem = ({
     </li>
   );
 };
+
+TodoItem.defaultProps = {
+  itemProp: null,
+  handleChange: () => {},
+  delTodo: () => {},
+  setUpdate: () => {},
+
+};
+
+TodoItem.propTypes = {
+  itemProp: PropTypes.instanceOf(Object),
+  handleChange: PropTypes.func,
+  delTodo: PropTypes.func,
+  setUpdate: PropTypes.func,
+};
+
 export default TodoItem;

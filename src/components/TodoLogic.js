@@ -5,7 +5,6 @@ import TodoList from './TodoList';
 
 const TodosLogic = () => {
   const getInitialTodos = () => {
-    // getting stored items
     const temp = localStorage.getItem('todos');
     const savedTodos = JSON.parse(temp);
     return savedTodos || [];
@@ -32,12 +31,15 @@ const TodosLogic = () => {
     };
     setTodos([...todos, newTodo]);
   };
-  /* eslint-disable no-param-reassign */
+
   const setUpdate = (updateTitle, id) => {
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
-          todo.title = updateTitle;
+          return {
+            ...todo,
+            title: updateTitle,
+          };
         }
         return todo;
       }),

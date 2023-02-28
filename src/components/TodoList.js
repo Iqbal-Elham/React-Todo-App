@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
-/* eslint-disable react/prop-types */
+
 const TodoList = (props) => {
   const {
     todoProp, handleChange, delTodo, setUpdate,
@@ -17,6 +18,20 @@ const TodoList = (props) => {
       ))}
     </ul>
   );
+};
+
+TodoList.defaultProps = {
+  todoProp: [],
+  handleChange: () => {},
+  delTodo: () => {},
+  setUpdate: () => {},
+};
+
+TodoList.propTypes = {
+  todoProp: PropTypes.instanceOf(Array),
+  handleChange: PropTypes.func,
+  delTodo: PropTypes.func,
+  setUpdate: PropTypes.func,
 };
 
 export default TodoList;
